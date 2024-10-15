@@ -1,0 +1,1109 @@
+print[[
+Secment: Main dev
+Fin: Anticheat bypass base (Base patched, recreated by secment and retro)
+Retro: Fixed suicide method (Old)
+]]
+isMines = game.ReplicatedStorage.GameData.Floor.Value == "Mines"
+isRooms = game.ReplicatedStorage.GameData.Floor.Value == "Rooms"
+isHotel = game.ReplicatedStorage.GameData.Floor.Value == "Hotel"
+getgenv=getgenv or function() return getfenv(0) end
+function import(x)
+if type(x)=='table' then 
+local table={}
+for i,v in pairs(x) do
+  table[i]=v
+end
+getgenv()[x.name]=table
+else
+if x:IsA'ModuleScript' then
+local table={}
+for i,v in pairs(require(x)) do
+      table[i]=v
+    end
+getgenv()[x.Name]=table
+  end
+end
+end
+task.spawn(function()
+  for i,v in pairs(game.ReplicatedStorage:GetDescendants()) do
+if v:IsA'ModuleScript' then
+      import(v)
+      print("Imported "..v.Name)
+    end
+  end
+end)
+str=tostring
+int=tonumber
+char=game.Players.LocalPlayer.Character
+local collision, defaultC0, cweld, defaultCPP
+if char:FindFirstChild('Collision') then
+collision = char.Collision
+defaultCPP = collision.CustomPhysicalProperties
+if collision:FindFirstChildOfClass('ManualWeld') then
+  cweld = collision:FindFirstChildOfClass('ManualWeld')
+  defaultC0 = cweld.C0
+end
+end
+function len(t)
+return #t
+end
+function fixinv()
+if getconnections then
+items={}
+for i,v in pairs(game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Hotbar:GetChildren()) do
+if v:IsA'GuiButton' then
+  for i,v in pairs(getconnections(v.MouseButton1Down)) do
+    v:Disable()
+  end
+  items[tonumber(v.Name)]={
+      button=v,
+      item=tonumber(v.Name),
+      equipped=false,
+      checking=false,
+      tool=nil
+  }
+end
+end
+for i,v in pairs(items) do
+v.button.MouseButton1Down:Connect(function()
+if v.tool==nil or v.tool.Parent==nil then
+v.tool=game.Players.LocalPlayer.Backpack:GetChildren()[v.item]
+      end
+      if v.checking==false then
+        v.checking=true
+task.spawn(function()
+      while task.wait() do
+v.equipped=v.tool.Parent==game.Players.LocalPlayer.Character
+      end
+          end)
+      end
+      if v.equipped==false then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v.tool)
+      else
+v.tool.Parent=game.Players.LocalPlayer.Backpack
+      end
+    end)
+end
+else
+game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Hotbar:Destroy()
+game.GuiService:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
+end
+end
+local netaccess = coroutine.create(function()
+settings().Physics.AllowSleep = false
+while task.wait() do
+task.spawn(function()
+for i,v in pairs(game.Players:GetPlayers()) do
+if v~=game.Players.LocalPlayer then
+v.MaximumSimulationRadius = 0
+sethiddenproperty(v, 'SimulationRadius', 0)
+end
+end
+end)
+end game.Players.LocalPlayer.MaximumSimulationRadius = math.pow(1/01/0,1/01/0)*1/0
+setsimulationradius(1/0)
+end)
+coroutine.resume(netaccess)
+task.spawn(function()
+glitch = require(game.ReplicatedStorage.ClientModules.EntityModules.Glitch)
+  glitch.module_events = nil
+  glitch.stuff = nil game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.Updated:Destroy() game.ReplicatedStorage.ClientModules.Module_Events:Destroy() 
+end)
+firetable = {}
+firetouchinterest = function(touch, x, idkwhatthisisfor)
+if not firetable[x.Name] then
+  firetable[x.Name] = x.CFrame
+end
+if idkwhatthisisfor == 0 then
+  x.CFrame = touch.CFrame
+elseif idkwhatthisisfor == 1 then
+  x.CFrame = firetable[x.Name]
+end
+end
+funnydoor = Instance.new("ScreenGui")
+Main = Instance.new("Frame")
+UIStroke = Instance.new("UIStroke")
+UICorner = Instance.new("UICorner")
+UserInfo = Instance.new("TextLabel")
+Name1 = Instance.new("TextLabel")
+Name2 = Instance.new("TextLabel")
+SFrame = Instance.new("ScrollingFrame")
+UICorner_2 = Instance.new("UICorner")
+UIStroke_2 = Instance.new("UIStroke")
+UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+UIGridLayout = Instance.new("UIGridLayout")
+UIStroke_3 = Instance.new("UIStroke")
+UICorner_3 = Instance.new("UICorner")
+UIStroke_4 = Instance.new("UIStroke")
+UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+UICorner_5 = Instance.new("UICorner")
+UICorner_6 = Instance.new("UICorner")
+UICorner_7 = Instance.new("UICorner")
+UIAspectRatioConstraint_5 = Instance.new("UIAspectRatioConstraint")
+ImageButton = Instance.new("ImageButton")
+openbuttonig = Instance.new("Frame")
+UICorner_8 = Instance.new("UICorner")
+UIStroke_6 = Instance.new("UIStroke")
+Button_4 = Instance.new("TextButton")
+UIAspectRatioConstraint_6 = Instance.new("UIAspectRatioConstraint")
+
+-- Properties:
+
+funnydoor.Name = "funnydoor"
+funnydoor.Parent = game.CoreGui
+Main.Name = "Main"
+Main.Parent = funnydoor
+Main.BackgroundColor3 = Color3.fromRGB(38, 17, 15)
+Main.BackgroundTransparency = 0.500
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.249626383, 0, 0.18849358, 0)
+Main.Size = UDim2.new(0.54750061, 0, 0.621394753, 0)
+Main.Visible = false
+
+UIStroke.Color = Color3.fromRGB(255, 222, 189)
+UIStroke.Thickness = 5
+UIStroke.Parent = Main
+
+UICorner.Parent = Main
+
+UserInfo.Name = "UserInfo"
+UserInfo.Parent = Main
+UserInfo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UserInfo.BackgroundTransparency = 1.000
+UserInfo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UserInfo.BorderSizePixel = 0
+UserInfo.Position = UDim2.new(0.715335786, 0, -0.00360158924, 0)
+UserInfo.Size = UDim2.new(0.284664065, 0, 0.136278421, 0)
+UserInfo.Font = Enum.Font.Cartoon
+UserInfo.Text = "time"
+UserInfo.TextColor3 = Color3.fromRGB(255, 222, 189)
+UserInfo.TextScaled = true
+UserInfo.TextSize = 45.000
+UserInfo.TextWrapped = true
+
+Name1.Name = "Name1"
+Name1.Parent = Main
+Name1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name1.BackgroundTransparency = 1.000
+Name1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name1.BorderSizePixel = 0
+Name1.Position = UDim2.new(0.293685615, 0, -0.00406845426, 0)
+Name1.Size = UDim2.new(0.284123182, 0, 0.136278406, 0)
+Name1.Font = Enum.Font.Cartoon
+Name1.Text = "Paradox"
+Name1.TextColor3 = Color3.fromRGB(255, 225, 0)
+Name1.TextScaled = true
+Name1.TextSize = 45.000
+Name1.TextWrapped = true
+
+Name2.Name = "Name2"
+Name2.Parent = Main
+Name2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name2.BackgroundTransparency = 1.000
+Name2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name2.BorderSizePixel = 0
+Name2.Position = UDim2.new(0.543890297, 0, -0.00112766435, 0)
+Name2.Size = UDim2.new(0.171330586, 0, 0.136278406, 0)
+Name2.Font = Enum.Font.Cartoon
+Name2.Text = "Hub"
+Name2.TextColor3 = Color3.fromRGB(255, 222, 189)
+Name2.TextScaled = true
+Name2.TextSize = 45.000
+Name2.TextWrapped = true
+
+SFrame.Name = "SFrame"
+SFrame.Parent = Main
+SFrame.Active = true
+SFrame.BackgroundColor3 = Color3.fromRGB(38, 17, 15)
+SFrame.BackgroundTransparency = 1.000
+SFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SFrame.BorderSizePixel = 0
+SFrame.Position = UDim2.new(0.02, 0, 0.2, 0)
+SFrame.Size = UDim2.new(0.96, 0, 0.6, 0)
+SFrame.CanvasSize = UDim2.new(0, 0, 0, 2100)
+SFrame.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+SFrame.ScrollBarThickness = 6
+SFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+UIGridLayout.Parent = SFrame
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellPadding = UDim2.new(0, 16, 0, 16)
+UIGridLayout.CellSize = UDim2.new(0, 140, 0, 40)
+
+UIStroke_3.Color = Color3.fromRGB(208, 181, 154)
+UIStroke_3.Thickness = 4
+UIStroke_3.Parent = SFrame
+
+UIAspectRatioConstraint_5.Parent = Main
+UIAspectRatioConstraint_5.AspectRatio = 1.742
+
+ImageButton.Parent = Main
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Size = UDim2.new(0, 70, 0, 52)
+ImageButton.Image = "rbxassetid://11422928451"
+ImageButton.ImageColor3 = Color3.fromRGB(255, 222, 189)
+ImageButton.ScaleType = Enum.ScaleType.Fit
+
+openbuttonig.Name = "openbuttonig"
+openbuttonig.Parent = funnydoor
+openbuttonig.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+openbuttonig.BackgroundTransparency = 0.500
+openbuttonig.BorderColor3 = Color3.fromRGB(0, 0, 0)
+openbuttonig.BorderSizePixel = 0
+openbuttonig.Position = UDim2.new(0.0160513651, 0, 0.744470835, 0)
+openbuttonig.Size = UDim2.new(0.131070927, 0, 0.0814122334, 0)
+
+UICorner_8.Parent = openbuttonig
+
+UIStroke_6.Color = Color3.fromRGB(255, 222, 189)
+UIStroke_6.Thickness = 3
+UIStroke_6.Parent = openbuttonig
+
+Button_4.Name = "Button"
+Button_4.Parent = openbuttonig
+Button_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button_4.BackgroundTransparency = 1.000
+Button_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Button_4.BorderSizePixel = 0
+Button_4.Size = UDim2.new(1, 0, 1, 0)
+Button_4.Font = Enum.Font.Cartoon
+Button_4.Text = "Open Hub"
+Button_4.TextColor3 = Color3.fromRGB(255, 222, 189)
+Button_4.TextScaled = true
+Button_4.TextSize = 14.000
+Button_4.TextWrapped = true
+
+UIAspectRatioConstraint_6.Parent = openbuttonig
+UIAspectRatioConstraint_6.AspectRatio = 3.183
+function god()
+if collision and collision:FindFirstChildOfClass('ManualWeld') then
+  local oldpos = char:GetPivot()
+  collision.CanCollide = false
+  collision:FindFirstChildOfClass('ManualWeld').C0 = CFrame.new(defaultC0.X, 8.31, defaultC0.Z); wait(.2)
+  char:PivotTo(oldpos)
+end
+end
+local function esp(inst, ad, o, text)
+if text==nil then text=inst.Name end
+if o==nil then o=3 end
+if ad==nil then ad=inst end
+local newBG = Instance.new("BillboardGui")
+newBG.Name = "ESPBillboardGui"
+newBG.Parent = inst
+newBG.AlwaysOnTop = true
+newBG.Adornee = ad
+newBG.Size = UDim2.new(3, 0, 3, 0)
+newBG.StudsOffset = Vector3.new(0,o,0)
+local newTL = Instance.new("TextLabel")
+newTL.BackgroundTransparency = 1
+newTL.Name = "ESPTextLabel"
+newTL.Font = "Oswald"
+newTL.Parent = newBG
+newTL.Size = UDim2.new(1,0, 1,0)
+newTL.TextScaled = true
+newTL.Text = text
+local newH = Instance.new("Highlight")
+newH.Name = "ESPHighlight"
+newH.Parent = inst
+newH.Enabled = true
+newH.Adornee = inst
+end
+function button(txt, func)
+task.spawn(function()
+local Scripts_3 = Instance.new("Frame")
+Scripts_3.Name = "Scripts"
+Scripts_3.Parent = SFrame
+Scripts_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Scripts_3.BackgroundTransparency = 0.500
+Scripts_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Scripts_3.BorderSizePixel = 0
+Scripts_3.Position = UDim2.new(0.0160513651, 0, 0.0610521175, 0)
+Scripts_3.Size = UDim2.new(0.25, 0, 0.0430000015, 0)
+local UICorner_4 = Instance.new("UICorner")
+UICorner_4.Parent = Scripts_3
+local UIStroke_5 = Instance.new("UIStroke")
+UIStroke_5.Color = Color3.fromRGB(255, 222, 189)
+UIStroke_5.Thickness = 3
+UIStroke_5.Parent = Scripts_3
+local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint_3.Parent = Scripts_3
+UIAspectRatioConstraint_3.AspectRatio = 4.500
+local Button_3 = Instance.new("TextButton")
+Button_3.Name = "Button"
+Button_3.Parent = Scripts_3
+Button_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button_3.BackgroundTransparency = 1.000
+Button_3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Button_3.BorderSizePixel = 0
+Button_3.Size = UDim2.new(1, 0, 1, 0)
+Button_3.Font = Enum.Font.Cartoon
+Button_3.Text = txt
+Button_3.TextColor3 = Color3.fromRGB(255, 222, 189)
+Button_3.TextScaled = true
+Button_3.TextSize = 14.000
+Button_3.TextWrapped = true
+local t=Button_3.MouseButton1Down:Connect(function()
+    func(Button_3, t)
+  end)
+  end)
+end
+function vtouch(part, ct)--idk what this is for, its just to be more accurate
+for i,v in pairs(part:GetDescendants()) do
+if part:IsA'BasePart' then
+part.CanTouch=ct
+    end
+end
+end
+function getbananas()--useless honestly
+   local table={}
+   for i, v in pairs(game.Workspace:GetChildren()) do
+       if v.Name=='BananaPeel' then
+           table[#table+1]=v
+       end
+   end
+ return table
+end
+function notify(text, desc)
+task.spawn(function()
+if desc==nil then
+desc="//Notification//"
+end
+local notify = Instance.new("ScreenGui")
+local gui = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local TextLabel = Instance.new("TextLabel")
+local Frame = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+notify.Name = "notify"
+notify.Parent = game.CoreGui
+notify.ResetOnSpawn = false
+notify.DisplayOrder = 999999999
+gui.Name = "gui"
+gui.Parent = notify
+gui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+gui.BackgroundTransparency = 0.500
+gui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+gui.BorderSizePixel = 0
+gui.Position = UDim2.new(0.76572758, 0, 0.771679521, 0)
+gui.Size = UDim2.new(0.218506113, 0, 0.147033289, 0)
+UICorner.Parent = gui
+UIStroke.Color = Color3.fromRGB(255, 222, 189)
+UIStroke.Thickness = 3
+UIStroke.Parent = gui
+UIAspectRatioConstraint.Parent = gui
+UIAspectRatioConstraint.AspectRatio = 2.938
+TextLabel.Parent = gui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, 0.272134006, 0)
+TextLabel.Size = UDim2.new(1, 0, 0.72, 0)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = text
+TextLabel.TextColor3 = Color3.fromRGB(255, 222, 189)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+Frame.Parent = gui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 222, 189)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.269203603, 0, 0.242451698, 0)
+Frame.Size = UDim2.new(0.453, 0, 0.022, 0)
+TextLabel_2.Parent = gui
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.314932913, 0, -0.0653122365, 0)
+TextLabel_2.Size = UDim2.new(0.357, 0, 0.426, 0)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = desc
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 222, 189)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 18.000
+TextLabel_2.TextWrapped=true
+local TweenService = game:GetService("TweenService")
+local uiElement = gui
+local screenSize = workspace.CurrentCamera.ViewportSize
+local targetPosition = UDim2.new(1.5, 0, uiElement.Position.Y.Scale, uiElement.Position.Y.Offset)
+local tweenInfo = TweenInfo.new(
+  1,
+  Enum.EasingStyle.Quad,
+  Enum.EasingDirection.Out
+)
+local tween = TweenService:Create(uiElement, tweenInfo, {Position = targetPosition})
+task.wait(2)
+tween:Play()
+tween.Completed:Wait()
+uiElement:Destroy()
+end)
+end
+function tbox(txt, func)
+task.spawn(function()
+local UIStroke_5 = Instance.new("UIStroke")
+local texterboxer = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+UICorner_4.Parent = textboxer
+local UIAspectRatioConstraint_4 = Instance.new("UIAspectRatioConstraint")
+UIAspectRatioConstraint_4.Parent = texterboxer
+UIAspectRatioConstraint_4.AspectRatio = 4.500
+UICorner_5.Parent = texterboxer
+texterboxer.Name = "texterboxer"
+texterboxer.Parent = SFrame
+texterboxer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+texterboxer.Size = UDim2.new(0, 1, 0, 1)
+texterboxer.Font = Enum.Font.Cartoon
+texterboxer.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
+texterboxer.PlaceholderText = txt
+texterboxer.Text = ""
+texterboxer.TextColor3 = Color3.fromRGB(255, 222, 189)
+texterboxer.TextSize = 24.000
+texterboxer.TextWrapped = true
+texterboxer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+texterboxer.BackgroundTransparency = 0.500
+texterboxer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+texterboxer.BorderSizePixel = 0
+t=texterboxer.FocusLost:Connect(function()
+func(texterboxer, t)
+end)
+  end)
+end
+function text(txt)
+task.spawn(function()
+local textlab = Instance.new("TextLabel")
+textlab.Name = txt
+textlab.Parent = SFrame
+textlab.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+textlab.BackgroundTransparency = 1.000
+textlab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+textlab.BorderSizePixel = 0
+textlab.Size = UDim2.new(0, 1, 0, 1)
+textlab.Font = Enum.Font.Cartoon
+textlab.Text = txt
+textlab.TextColor3 = Color3.fromRGB(255, 222, 189)
+textlab.TextSize = 24.000
+UICorner_7.Parent = textlab
+  end)
+end
+-- Scripts:
+task.spawn(function()
+  while task.wait() do
+    local currentTime = os.date("*t")
+    local hours = currentTime.hour
+    local minutes = currentTime.min
+    local seconds = currentTime.sec
+    local day = currentTime.day
+    local month = currentTime.month
+    local year = currentTime.year
+
+    local timeStr = string.format("%02d:%02d:%02d", hours, minutes, seconds)
+
+    local dateStr = string.format("%02d/%02d/%04d", month, day, year)
+
+    UserInfo.Text = "Time: " .. timeStr .. "\nDate: " .. dateStr
+  end
+end)
+ImageButton.MouseButton1Click:Connect(function()
+  Main.Visible = false
+  openbuttonig.Visible = true
+end)
+Button_4.MouseButton1Click:Connect(function()
+  Main.Visible = true
+  openbuttonig.Visible = false
+end)
+button("FE Become Figure", function(button, connection)
+  Workspace.ClientAnimatorThrottling=2
+  for i,v in pairs(workspace.CurrentRooms:GetDescendants()) do
+      if v.Name=="FigureRagdoll" then
+  Instance.new("Humanoid",v)
+  game.Players.LocalPlayer.Character=v
+  pcall(function()
+  v.Torso.BodyVelocity:Destroy()
+          end)
+      end
+  end
+end)
+deleteseek=false
+delseek=false
+while task.wait(.5) and delseek==true do
+for i,v in pairs(game.workspace.CurrentRooms:GetDescendants()) do
+if v:IsA'BindableEvent' and v.Name=='TriggerSeek' then
+task.wait(.2)
+v:Fire()
+task.wait(.3)
+v:Destroy()
+end
+end
+end
+
+button("Delete Seek", function(button, connection) 
+delseek=true
+  button.Text="Deleting seek.."
+  pcall(function()
+  connection:Disconnect()
+    end)
+  end)
+button("FE Kill figure", function(button, connection)
+  if workspace.CurrentRooms:FindFirstChild'100' then
+  r100=game.Workspace.CurrentRooms['100']:GetDescendants()
+        else
+    r100={}
+    end
+    if workspace.CurrentRooms:FindFirstChild'50' then
+  r50=game.Workspace.CurrentRooms['50']:GetDescendants()
+        else
+    r50={}
+    end
+   for i,v in pairs(r100 and r50) do
+        if v.ClassName == "Attachment" then
+            task.wait()
+        task.spawn(function()
+  while task.wait() and v.Parent~=nil do
+            v.WorldCFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        end
+          end)
+      end
+    end
+end)
+screech=false
+heartbeat=false
+screechs=false
+workspace.CurrentCamera.ChildAdded:Connect(function(child)
+  if child.Name == "Screech" then
+if screech==true then
+      child:Destroy()
+end
+if screechs==true then
+notify("Screech Spawned!", "//Spy//")
+end
+  end
+end)
+local old
+old = hookmetamethod(game,"__namecall",newcclosure(function(self,...)
+  local args = {...}
+  local method = getnamecallmethod()
+
+  if tostring(self) == 'Screech' and method == "FireServer" and screech == true then
+      return
+      elseif tostring(self) == 'ClutchHeartbeat' and method == "FireServer" and heartbeat == true then
+      return
+        elseif method == "Destroy" and self.Name== "RunnerNodes" then
+            return
+  end
+
+  return old(self,...)
+end))
+
+button("Anti Screech OFF", function(button, c)
+if screech==false then
+screech=true
+button.Text="Anti Screech ON"
+  else
+screech=false
+button.Text="Anti Screech OFF"
+  end
+end)
+button("Win Heartbeat OFF", function(button, c)
+if heartbeat==false then
+heartbeat=true
+button.Text="Win Heartbeat ON"
+  else
+heartbeat=false
+button.Text="Win Heartbeat OFF"
+  end
+end)
+sarm=false
+schan=false
+rushspy=false
+ambushspy=false --arrow ass list
+antidupe=false
+leveresp=false
+goldesp=false
+eyesspy=false
+keyesp=false
+a1000=false
+insta=false
+noclipprox=false
+snare=false
+a60=false
+a120=false
+workspace.DescendantAdded:Connect(function(part)
+if part.Name=="LeverForGate" and leveresp==true then
+    esp(part:WaitForChild'Main')
+  end
+if part.Name=="Snare" and snare==true then
+      part:Destroy()
+    end
+if part.Name=="RoomsDoor_Entrance" and a1000==true then
+    part.Door.EnterPrompt.Enabled=true
+  end
+if part:IsA"ProximityPrompt" and insta==true then
+    if noclipprox==true then
+      part.RequiresLineOfSight=false
+    end
+    part.HoldDuration=0
+  end
+if (part.Name=="KeyObtain" or (part.Name=="Lighter" and part:FindFirstChild'Main') or string.find(part.Name, "Crucifix") or string.find(part.Name, "SkeletonKey") or part.Name=="LiveHintBook" or part.Name=="Lockpicks" or part.Name=="Flashlight") and keyesp==true then
+    esp(part)
+  end
+if part.Name=="GoldPile" and goldesp==true then
+    esp(part)
+  end
+if (part.Name=='TriggerEventCollision' or part.Name=='TriggerSeek') and deleteseek==true then
+task.wait(1)
+part:Destroy()
+end
+if part.Name=="A60" and a60==true then
+      notify("A60 spawned!", "//Spy//")
+    end
+if part.Name=="A120" and a120==true then
+      notify("A120 spawned!", "//Spy//")
+end
+if part.Name=='RushMoving' or part.Name== "BackdoorRush" and rushspy==true then
+    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-part:WaitForChild'RushNew'.Position).Magnitude<10000 then
+notify("Rush spawned!", "//Spy//")
+    end
+  end
+if part.Name=="Eyes" and eyesspy==true then
+notify("Eyes spawned!", "//Spy//")
+  end
+if part.Name=="AmbushMoving" and ambushspy==true then
+    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-part:WaitForChild'RushNew'.Position).Magnitude<10000 then
+notify("Ambush spawned!", "//Spy//")
+    end
+end
+if part.Name=="ClosetDupe" and antidupe==true then
+task.wait(1)
+part.Parent=nil
+  end
+if part.Name=="Seek_Arm" and sarm==true then
+part:Destroy()
+  end
+if part.Name=="ChandelierObstruction" and schan==true then
+part:Destroy()
+  end
+end)
+button("Anti Seek Arm OFF", function(button, c)
+if sarm==false then
+sarm=true
+button.Text="Anti Seek Arm ON"
+  else
+sarm=false
+button.Text="Anti Seek Arm OFF"
+end
+end)
+button("Anti Chandelier OFF", function(button, c)
+if schan==false then
+schan=true
+button.Text="Anti Chandelier ON"
+  else
+schan=false
+button.Text="Anti Chandelier OFF"
+  end
+end)
+task.spawn(function()
+fb=false
+button("Fullbright OFF", function(b,c)
+    if fb==false then
+fb=true
+      b.Text="Fullbright ON"
+    else
+      fb=false
+      b.Text="Fullbright OFF"
+    end
+  end)
+while game["Run Service"].RenderStepped:Wait() do
+      if fb==true then
+        game.Lighting.Ambient=Color3.new(1,1,1)
+      else
+        game.Lighting.Ambient = workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")]:GetAttribute("Ambient")
+      end
+    end
+  end)
+halt=game.ReplicatedStorage.ClientModules.EntityModules.Shade
+hal=false
+void=halt.Parent.Void
+voids=false
+oldheight=workspace.FallenPartsDestroyHeight
+button("Anti Void OFF", function(but, c)
+if voids==false then
+voids=true
+void.Parent=nil
+workspace.FallenPartsDestroyHeight=-1/0
+but.Text="Anti Void ON"
+else
+but.Text="Anti Void OFF"
+voids=false
+void.Parent=game.ReplicatedStorage.ClientModules.EntityModules
+workspace.FallenPartsDestroyHeight=oldheight
+end
+end)
+button("Anti Dupe OFF", function(b,c)
+if antidupe==false then
+b.Text="Anti Dupe ON"
+antidupe=true
+  else
+b.Text="Anti Dupe OFF"
+antidupe=false
+  end
+end)
+button("Anti Snare OFF", function(b,c)
+    if snare==false then
+      snare=true
+      b.Text="Anti Snare ON"
+    else
+      snare=false
+      b.Text="Anti Snare OFF"
+    end
+  end)
+button("Anti Halt OFF", function(but,c)
+if hal==false then
+hal=true
+but.Text="Anti Halt ON"
+halt:Remove()
+else
+hal=false
+but.Text="Anti Halt OFF"
+halt.Parent=game.ReplicatedStorage.ClientModules.EntityModules
+end
+end)
+sped=false --real
+collision=game.Players.LocalPlayer.Character.Collision
+tbox("Prox reach", function(b,c)
+    for _, prompt in pairs(workspace.CurrentRooms:GetDescendants()) do
+        if prompt:IsA("ProximityPrompt") then
+            if not prompt:GetAttribute("Distance") then prompt:SetAttribute("Distance", prompt.MaxActivationDistance) end
+
+            prompt.MaxActivationDistance = prompt:GetAttribute("Distance") * int(b.Text)
+        end
+    end
+  end)
+tbox("SpeedBoost", function(box, connect)
+if box.Text~="" then
+if sped==false then
+      sped=true
+      task.spawn(function()
+      while wait(.24) do
+         collision.Massless = not collision.Massless
+      end
+        end)
+      end
+        char:SetAttribute('SpeedBoostBehind', int(box.Text))
+  end
+end)
+button("Screech logger OFF", function(btn, c)
+if screechs==false then
+screechs=true
+btn.Text="Screech logger ON"
+else
+screechs=false
+btn.Text="Screech logger OFF"
+end
+end)
+button("Rush logger OFF", function(b,c)
+  if rushspy==false then
+    rushspy=true
+    b.Text="Rush logger ON"
+  else
+    b.Text="Rush logger OFF"
+rushspy=false
+  end
+end)
+button("Ambush logger OFF", function(b,c)
+if ambushspy==false then
+ambushspy=true
+b.Text="Ambush logger ON"
+  else
+b.Text="Ambush logger OFF"
+ambushspy=false
+  end
+end)
+button("Eyes logger OFF", function(b,c)
+if eyesspy==false then
+    eyesspy=true
+b.Text="Eyes logger ON"
+  else
+b.Text="Eyes logger OFF"
+eyesspy=false
+  end
+end)
+button("Tool Esp OFF", function(b,c)
+if keyesp==false then
+b.Text="Tool Esp ON"
+    keyesp=true
+  else
+b.Text="Tool Esp OFF"
+keyesp=false
+  end
+end)
+button("Gold Esp OFF", function(b,c)
+  if goldesp==false then
+    goldesp=true
+b.Text="Gold Esp ON"
+  else
+b.Text="Gold Esp OFF"
+    goldesp=false
+  end
+end)
+button("Lever Esp OFF", function(b,c)
+  if leveresp==false then
+leveresp=true
+b.Text="Lever Esp ON"
+  else
+b.Text="Lever Esp OFF"
+leveresp=false
+  end
+end)
+god=false
+Clip=false
+function noclip()
+  speaker=game.Players.LocalPlayer
+  Clip = false
+  wait(0.1)
+  local function NoclipLoop()
+    if Clip == false and speaker.Character ~= nil then
+      for _, child in pairs(speaker.Character:GetDescendants()) do
+        if child:IsA("BasePart") and child.CanCollide == true then
+          child.CanCollide = false
+        end
+      end
+    end
+  end
+  Noclipping = game:service'RunService'.Stepped:Connect(NoclipLoop)
+end
+function unnoclip()
+if Noclipping then
+Noclipping:Disconnect()
+end
+Clip=true
+end
+button("Unlock A-1000 OFF", function(b,c)
+     for i, rooml in pairs(workspace.CurrentRooms:GetChildren()) do
+         if rooml:FindFirstChild("RoomsDoor_Entrance") and rooml.RoomsDoor_Entrance:FindFirstChild("Door") and rooml.RoomsDoor_Entrance.Door:FindFirstChild("EnterPrompt") then rooml.RoomsDoor_Entrance.Door.EnterPrompt.Enabled = true
+         end
+      end
+  if a1000==false then
+    b.Text="Unlock A-1000 ON"
+    a1000=true
+  else
+    b.Text="Unlock A-1000 OFF"
+    a1000=false
+  end
+end)
+
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+v.Parent=v.Parent.Parent.Character
+task.wait(.2)
+v:Destroy()
+end
+ghost=false
+game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(v)
+  if ghost==true then
+task.wait(.2)
+v.Parent=v.Parent.Parent.Character
+task.wait(.2)
+v:Destroy()
+  end
+end)
+game.Players.LocalPlayer.Character.ChildAdded:Connect(function(v)
+if ghost==true then
+  task.spawn(function()
+if v:IsA'Tool' then
+task.wait(.2)
+v:Destroy()
+        end
+    end)
+  end
+end)
+button("Ghost Items OFF", function(b, c)
+if ghost==false then
+    b.Text="Ghost Items ON"
+    ghost=true
+  else
+    b.Text="Ghost Items OFF"
+    ghost=false
+  end
+end)
+button("Instant prox OFF", function(b,c)
+    for i,part in pairs(workspace.CurrentRooms:GetDescendants()) do
+    if part:IsA"ProximityPrompt" and insta==true then
+      part.HoldDuration=0
+    end
+    end
+    if insta==false then
+      b.Text="Instant prox ON"
+      insta=true
+    else
+      b.Text="Instant prox OFF"
+      insta=false
+    end
+  end)
+button("Noclip prox OFF", function(b,c)
+    for i,part in pairs(workspace.CurrentRooms:GetDescendants()) do
+    if part:IsA"ProximityPrompt" and insta==true then
+      part.RequiresLineOfSight=false
+    end
+    end
+    if noclipprox==false then
+      noclipprox=true
+    else
+      noclipprox=false
+    end
+  end)
+if isRooms then
+  button("A60 logger OFF", function(b,c)
+    if a60==false then a60=true b.Text="A60 logger ON" else a60=false b.Text="A60 LOGGER OFF" end end)
+      button("A120 logger OFF", function(b,c)
+        if a120==false then a120=true b.Text="A120 logger ON" else a120=false b.Text="A120 LOGGER OFF" end
+    end)
+end
+button("Anticheat bypass", function(b,c)
+        b.Text="Please wait..."
+        pcall(function()
+            c:Disconnect()
+          end)
+        workspace.FallenPartsDestroyHeight=-1/0
+        parttable={}
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        parttable[i]=v
+        end --or just do parttabl=game.Players.LocalPlayer.Character:GetChildren()
+        fuckoffhrp=game.Players.LocalPlayer.Character.HumanoidRootPart
+        if game:GetService("ReplicatedStorage").GameData.LatestRoom.Value == 0 then
+          repeat wait()
+          until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value > 0
+        end
+        function fuckclosets(v)
+        if v.Name=="Wardrobe" then
+        v:Destroy()
+        end
+        end
+        for i,v in pairs(workspace.CurrentRooms:GetDescendants()) do
+        fuckclosets(v)
+        end
+        game.workspace.CurrentRooms.DescendantAdded:Connect(fuckclosets)
+        player=game.Players.LocalPlayer
+        character=game.Players.LocalPlayer.Character
+        hrp=character.HumanoidRootPart
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Death.Parent=nil
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.DeathPanelDead.Parent=nil
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.HodlerRevive.Parent=nil
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Parent=nil
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Visible = true
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame:GetPropertyChangedSignal("Visible"):Connect(function()
+        game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Visible = true
+        end)
+        game:GetService("SoundService").Main.Volume = 1
+        game:GetService("SoundService").Main:GetPropertyChangedSignal("Volume"):Connect(function()
+          if game:GetService("SoundService").Main.Volume ~= 1 then
+            game:GetService("SoundService").Main.Volume = 1
+          end
+        end)
+        function BodyVelocity()
+        character.HumanoidRootPart.CanCollide = false
+        for _, child in ipairs(character:GetChildren()) do
+          local Body_Velocity = Instance.new("BodyVelocity")
+          Body_Velocity.Name = "BodyVelocity1"
+          Body_Velocity.Parent = child
+          Body_Velocity.MaxForce =  Vector3.new(4000, 4000, 4000)
+          Body_Velocity.P = 1250
+          Body_Velocity.Velocity = Vector3.new(0,0,0)
+        end
+        end
+        task.wait()
+        BodyVelocity()
+        Humanoid = game.Players.LocalPlayer.Character.Humanoid:Clone()
+        game:GetService("ReplicatedStorage"):WaitForChild("RemotesFolder"):WaitForChild("Underwater"):FireServer(true)
+        oldpivot=game.Players.LocalPlayer.Character.Collision.CFrame
+        repeat task.wait() until character.Humanoid.Health<=0.001
+        task.wait(0.4)
+        task.spawn(function()
+        game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Hotbar:Destroy()
+        game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
+        end)
+        character.Humanoid.EvaluateStateMachine = false
+        task.wait(0.5)
+        character.Humanoid:Destroy()
+        Humanoid.Parent=character
+        Humanoid.HipHeight=0.5
+        local RunService = game:service"RunService"
+        sigma=require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+        RunService.Stepped:Connect(function()
+            sigma.stunned=false
+            sigma.update()
+            game.ProximityPromptService.Enabled=true
+            fuckoffhrp.Parent=character
+            fuckoffhrp.Anchored = false
+            fuckoffhrp.Massless=false
+            for i,v in pairs(parttable) do
+              if v.Name~='Humanoid' then
+              v.Parent=character
+              end
+              if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" and v.Name~='Collision' then
+        if v.Name=="RightHand" then
+                v.Position = Vector3.new(fuckoffhrp.Position.X+1.5, fuckoffhrp.Position.Y, fuckoffhrp.Position.Z)
+        elseif v.Name=="LeftHand" then
+        v.Position = Vector3.new(fuckoffhrp.Position.X-1.5, fuckoffhrp.Position.Y, fuckoffhrp.Position.Z)
+        elseif v.Name=="RightArm" then
+                v.Position = Vector3.new(fuckoffhrp.Position.X+1.5, fuckoffhrp.Position.Y+1, fuckoffhrp.Position.Z)
+        elseif v.Name=="LeftArm" then
+        v.Position = Vector3.new(fuckoffhrp.Position.X-1.5, fuckoffhrp.Position.Y+1, fuckoffhrp.Position.Z)
+        elseif v.Name=="LowerTorso" then
+        v.Position=fuckoffhrp.Position
+        elseif v.Name=="UpperTorso" then
+        v.Position = Vector3.new(fuckoffhrp.Position.X, fuckoffhrp.Position.Y+0.5, fuckoffhrp.Position.Z)
+        elseif v.Name=="Head" then
+        v.Position = Vector3.new(fuckoffhrp.Position.X, fuckoffhrp.Position.Y+3, fuckoffhrp.Position.Z)
+        else
+        v.Position=fuckoffhrp.Position
+        end
+              end
+              if v:IsA'BasePart' then
+                v.CollisionGroup = "Player"
+                v.Massless=false
+                v.Anchored=false
+            end
+            end
+        end)
+        task.wait(2)
+        for _, child in ipairs(character:GetChildren()) do
+        if child.Name ~= "UpperTorso" and child.Name ~= "Collision" then
+          local X = child:FindFirstChild("BodyVelocity1")
+          X:Destroy()
+        end
+        end
+        task.spawn(function()
+        character.UpperTorso.BodyVelocity1.Velocity = Vector3.new(0,2,0)
+        end)
+        task.spawn(function()
+        character.RightHand.BodyVelocity1:Destroy() 
+        end)
+        game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
+        task.wait(5)
+        workspace.CurrentCamera:Remove()
+        workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+        workspace.CurrentCamera.CameraType = "Custom"
+        player.CameraMinZoomDistance = 0
+        player.CameraMaxZoomDistance = 0
+        player.CameraMode = 'Classic'
+        hrp.CFrame=oldpivot
+        while task.wait(.5) do
+        for i,v in pairs(game.workspace.CurrentRooms:GetDescendants()) do
+        if v:IsA'BindableEvent' and v.Name=='TriggerSeek' then
+        v:Fire()
+        task.wait(.5)
+        v:Destroy()
+        end
+        end
+        end
+        b.Text="Bypassed!"
+        task.wait(3)
+        b:Destroy()
+  end)
