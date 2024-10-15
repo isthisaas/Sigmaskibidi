@@ -1,0 +1,132 @@
+workspace.FallenPartsDestroyHeight=-1/0
+parttable={}
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+parttable[i]=v
+end --or just do parttabl=game.Players.LocalPlayer.Character:GetChildren()
+fuckoffhrp=game.Players.LocalPlayer.Character.HumanoidRootPart
+if game:GetService("ReplicatedStorage").GameData.LatestRoom.Value == 0 then
+  repeat wait()
+  until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value > 0
+end
+function fuckclosets(v)
+if v.Name=="Wardrobe" then
+v:Destroy()
+end
+end
+for i,v in pairs(workspace.CurrentRooms:GetDescendants()) do
+fuckclosets(v)
+end
+game.workspace.CurrentRooms.DescendantAdded:Connect(fuckclosets)
+player=game.Players.LocalPlayer
+character=game.Players.LocalPlayer.Character
+hrp=character.HumanoidRootPart
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Death.Parent=nil
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.DeathPanelDead.Parent=nil
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.HodlerRevive.Parent=nil
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Parent=nil
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Visible = true
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame:GetPropertyChangedSignal("Visible"):Connect(function()
+game:GetService("Players").LocalPlayer.PlayerGui.MainUI.MainFrame.Visible = true
+end)
+game:GetService("SoundService").Main.Volume = 1
+game:GetService("SoundService").Main:GetPropertyChangedSignal("Volume"):Connect(function()
+  if game:GetService("SoundService").Main.Volume ~= 1 then
+    game:GetService("SoundService").Main.Volume = 1
+  end
+end)
+function BodyVelocity()
+character.HumanoidRootPart.CanCollide = false
+for _, child in ipairs(character:GetChildren()) do
+  local Body_Velocity = Instance.new("BodyVelocity")
+  Body_Velocity.Name = "BodyVelocity1"
+  Body_Velocity.Parent = child
+  Body_Velocity.MaxForce =  Vector3.new(4000, 4000, 4000)
+  Body_Velocity.P = 1250
+  Body_Velocity.Velocity = Vector3.new(0,0,0)
+end
+end
+task.wait()
+BodyVelocity()
+Humanoid = game.Players.LocalPlayer.Character.Humanoid:Clone()
+game:GetService("ReplicatedStorage"):WaitForChild("RemotesFolder"):WaitForChild("Underwater"):FireServer(true)
+oldpivot=game.Players.LocalPlayer.Character.Collision.CFrame
+repeat task.wait() until character.Humanoid.Health<=0.001
+task.wait(0.4)
+task.spawn(function()
+game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Hotbar:Destroy()
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
+end)
+character.Humanoid.EvaluateStateMachine = false
+task.wait(0.5)
+character.Humanoid:Destroy()
+Humanoid.Parent=character
+Humanoid.HipHeight=0.5
+local RunService = game:service"RunService"
+sigma=require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+RunService.Stepped:Connect(function()
+    sigma.stunned=false
+    sigma.update()
+    game.ProximityPromptService.Enabled=true
+    fuckoffhrp.Parent=character
+    fuckoffhrp.Anchored = false
+    fuckoffhrp.Massless=false
+    for i,v in pairs(parttable) do
+      if v.Name~='Humanoid' then
+      v.Parent=character
+      end
+      if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" and v.Name~='Collision' then
+if v.Name=="RightHand" then
+        v.Position = Vector3.new(fuckoffhrp.Position.X+1.5, fuckoffhrp.Position.Y, fuckoffhrp.Position.Z)
+elseif v.Name=="LeftHand" then
+v.Position = Vector3.new(fuckoffhrp.Position.X-1.5, fuckoffhrp.Position.Y, fuckoffhrp.Position.Z)
+elseif v.Name=="RightArm" then
+        v.Position = Vector3.new(fuckoffhrp.Position.X+1.5, fuckoffhrp.Position.Y+1, fuckoffhrp.Position.Z)
+elseif v.Name=="LeftArm" then
+v.Position = Vector3.new(fuckoffhrp.Position.X-1.5, fuckoffhrp.Position.Y+1, fuckoffhrp.Position.Z)
+elseif v.Name=="LowerTorso" then
+v.Position=fuckoffhrp.Position
+elseif v.Name=="UpperTorso" then
+v.Position = Vector3.new(fuckoffhrp.Position.X, fuckoffhrp.Position.Y+0.5, fuckoffhrp.Position.Z)
+elseif v.Name=="Head" then
+v.Position = Vector3.new(fuckoffhrp.Position.X, fuckoffhrp.Position.Y+3, fuckoffhrp.Position.Z)
+else
+v.Position=fuckoffhrp.Position
+end
+      end
+      if v:IsA'BasePart' then
+        v.CollisionGroup = "Player"
+        v.Massless=false
+        v.Anchored=false
+    end
+    end
+end)
+task.wait(2)
+for _, child in ipairs(character:GetChildren()) do
+if child.Name ~= "UpperTorso" and child.Name ~= "Collision" then
+  local X = child:FindFirstChild("BodyVelocity1")
+  X:Destroy()
+end
+end
+task.spawn(function()
+character.UpperTorso.BodyVelocity1.Velocity = Vector3.new(0,2,0)
+end)
+task.spawn(function()
+character.RightHand.BodyVelocity1:Destroy() 
+end)
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,true)
+task.wait(5)
+workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+workspace.CurrentCamera.CameraType = "Custom"
+player.CameraMinZoomDistance = 0
+player.CameraMaxZoomDistance = 0
+player.CameraMode = 'Classic'
+hrp.CFrame=oldpivot
+while task.wait(.5) do
+for i,v in pairs(game.workspace.CurrentRooms:GetDescendants()) do
+if v:IsA'BindableEvent' and v.Name=='TriggerSeek' then
+v:Fire()
+task.wait(.5)
+v:Destroy()
+end
+end
+end
