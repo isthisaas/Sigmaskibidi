@@ -1,0 +1,528 @@
+repeat
+	wait()
+until game:IsLoaded()
+if game.PlaceId== 10449761463 then
+
+--https://www.roblox.com/games/10449761463/The-Strongest-Battlegrounds
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/win444/gui/main/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2gui"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/win444/gui/main/Nofitication"))()
+
+-- Intro
+Notification:Notify(
+    {Title = "Loading", Description = "Please Wait"},
+    {OutlineColor = Color3.fromRGB(76, 0, 130),Time = 5, Type = "default"}
+)
+
+--loadstring(game:HttpGet("https://pastebin.com/raw/4RxNLy1x",true))()
+
+wait(5)
+
+-- Ui Library
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/ZBfnpeTS"))()
+
+-- Window
+local Window = Library.CreateLib("win X | HUB ", "Serpent")
+
+-- Toggle
+local Toggle = Instance.new("ScreenGui")
+local UIToggle = Instance.new("TextButton")
+
+Toggle.Name = "Toggle"
+Toggle.Parent = game.CoreGui
+
+UIToggle.Name = "UIToggle"
+UIToggle.Parent = Toggle
+UIToggle.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+UIToggle.BackgroundTransparency = 0.660
+UIToggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+UIToggle.Size = UDim2.new(0.0650164187, 0, 0.0888099447, 0)
+UIToggle.Font = Enum.Font.SourceSans
+UIToggle.Text = "Toggle"
+UIToggle.TextColor3 = Color3.fromRGB(75, 0, 130)
+UIToggle.TextSize = 24.000
+UIToggle.TextXAlignment = Enum.TextXAlignment.Left
+UIToggle.MouseButton1Click:connect(function()
+    Library:ToggleUI()
+end)
+
+-- Notification library
+ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/win444/gui-/main/%E0%B9%81%E0%B8%88%E0%B9%89%E0%B8%87%E0%B9%80%E0%B8%95%E0%B8%B7%E0%B8%AD%E0%B8%99"))();
+ local Notify = Notification.Notify;
+
+-- Tabs
+local Welcome = Window:NewTab("Welcome")
+local We = Welcome:NewSection("Hello, "..game.Players.LocalPlayer.Name)
+
+local Main = Window:NewTab("Main")
+local Ma = Main:NewSection("Main Options")
+
+local Otherscripts = Window:NewTab("สคิปอื่นๆ")
+local sc = Otherscripts:NewSection("เลือก")
+
+local character = Window:NewTab("ตัวละครผู้เล่น")
+local ch = character:NewSection("เลือก")
+
+local help = Window:NewTab("ตัวช่วย")
+local he = help:NewSection("เลือก")
+
+local Animation = Window:NewTab("แอนิเมชั่น ที่ชอบ")
+local An = Animation:NewSection("เลือก")
+
+local More = Window:NewTab("เพิ่มเติม")
+local more = More:NewSection("คนสร้างใช้")
+
+--local Tab1Sec = Window:NewTab("Main")
+--local Tab1Section = Tab1Sec:NewSection("Main Options")
+
+-- Tab
+local PlaceName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+
+We:NewButton("Player : "..game.Players.LocalPlayer.Name.." | "..game.Players.LocalPlayer.UserId, "?", function()
+print("hi")
+end)
+
+We:NewButton("Game : "..game.PlaceId.." | "..PlaceName.Name, "?", function()
+print("hi")
+end)
+
+We:NewButton("Account Age : "..game.Players.LocalPlayer.AccountAge.." | Premium : Yes", "?", function()
+print("hi")
+end)
+
+We:NewKeybind("Ui Toggle (Key-Bind)", "?", Enum.KeyCode.F, function()
+   Library:ToggleUI()
+end)
+
+-- Tab1
+Ma:NewButton("บนกำแพง", '?', function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10.141129493713379, 652.521240234375, -380.71197509765625)
+end)
+
+Ma:NewButton("กลางสนามต่อสู้", "?", function()
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(116.98918914794922, 440.7527770996094, -35.57666778564453)    
+end)
+
+Ma:NewButton("ใต้แมพ", '?', function()
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.601876258850098, 8.878413200378418, 20.84319496154785)    
+end)
+
+Ma:NewButton("เชฟเครื่องมือ", '?', function()
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	 if (v:IsA("Tool")) then
+		 v.Parent = game.Players.LocalPlayer
+	 end
+ end
+Notify({
+		 Description = "เชฟเครื่องมือแล้ว";
+		 Title = "win hub";
+		 Duration = 5;
+		 
+		 });      
+end)
+
+Ma:NewButton("โหลดเครื่องมือ", '?', function()
+for _,v in pairs(game.Players.LocalPlayer:GetChildren()) do
+	 if (v:IsA("Tool")) then
+		 v.Parent = game.Players.LocalPlayer.Backpack
+	 end
+ end
+Notify({
+		 Description = "โหลดเครื่องมือแล้ว";
+		 Title = "win hub";
+		 Duration = 5;
+		 
+		 });      
+end)
+
+sc:NewButton("Lightux", '?', function()
+       loadstring(game:HttpGet(('https://raw.githubusercontent.com/cool83birdcarfly02six/Lightux/main/README.md'),true))()
+end)
+
+sc:NewButton("Gui fling", '?', function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
+end)
+
+sc:NewButton("FFJ1(saitama invisible Ultimates)", '?', function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/TSBUtils.lua"))()
+end)
+
+sc:NewButton("ออโต้ Void", '?', function()
+       loadstring(game:HttpGet("https://github.com/l0ckerV5/Roblox-Scripts/raw/main/The%20Strongest%20Battlegrounds/Auto%20Void"))()
+end)
+ 
+sc:NewButton("วาป เมนู", '?', function()
+       loadstring(game:HttpGet('https://raw.githubusercontent.com/ZawTheChawMan/Obfuscator/main/The_Strongest_Battlegrounds_Script'))()
+end)
+
+sc:NewButton("phaantasm", '?', function()
+_G.Pc = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing"))()
+end)
+
+--hiddenfling = false
+ch:NewButton("ใช้งานwalkfling", '?', function()
+Notify({
+		 Description = "เปิดใช้งานWalkflingแล้ว";
+		 Title = "win hub";
+		 Duration = 5;
+		 
+		 });
+	 if game:GetService("ReplicatedStorage"):FindFirstChild("juisdfj0i32i0eidsuf0iok") then
+		 hiddenfling = true
+	 else
+		 hiddenfling = true
+		 detection = Instance.new("Decal")
+		 detection.Name = "juisdfj0i32i0eidsuf0iok"
+		 detection.Parent = game:GetService("ReplicatedStorage")
+		 local function fling()
+			 local hrp, c, vel, movel = nil, nil, nil, 0.1
+			 while true do
+				 game:GetService("RunService").Heartbeat:Wait()
+				 if hiddenfling then
+					 local lp = game.Players.LocalPlayer
+					 while hiddenfling and not (c and c.Parent and hrp and hrp.Parent) do
+						 game:GetService("RunService").Heartbeat:Wait()
+						 c = lp.Character
+						 hrp = c:FindFirstChild("HumanoidRootPart") or c:FindFirstChild("Torso") or c:FindFirstChild("UpperTorso")
+					 end
+					 if hiddenfling then
+						 vel = hrp.Velocity
+						 hrp.Velocity = vel * 10000 + Vector3.new(0, 10000, 0)
+						 game:GetService("RunService").RenderStepped:Wait()
+						 if c and c.Parent and hrp and hrp.Parent then
+							 hrp.Velocity = vel
+						 end
+						 game:GetService("RunService").Stepped:Wait()
+						 if c and c.Parent and hrp and hrp.Parent then
+							 hrp.Velocity = vel + Vector3.new(0, movel, 0)
+							 movel = movel * -1
+						 end
+					 end
+				 end
+			 end
+		 end
+		 
+		 fling()
+	 end
+end)
+
+
+ch:NewButton("ปิดใช้งานwalkfling", '?', function()
+Notify({
+		 Description = "ปิดใชงานWalkflingแล้ว";
+		 Title = "win hub";
+		 Duration = 5;
+		 
+		 });
+		 hiddenfling = false
+end)
+
+ch:NewButton("??", '?', function()
+
+end)
+
+
+
+ch:NewButton("ความเร็ว100", '?', function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    local hum = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    if hum then
+        hum.WalkSpeed = 100
+    end
+end)    
+end)
+
+ch:NewButton("ความเร็ว200", '?', function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    local hum = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    if hum then
+        hum.WalkSpeed = 200
+    end
+end)    
+end)
+
+ch:NewButton("ความเร็ว300", '?', function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    local hum = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    if hum then
+        hum.WalkSpeed = 300
+    end
+end)    
+end)
+
+ch:NewButton("ความเร็ว400", '?', function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    local hum = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    if hum then
+        hum.WalkSpeed = 400
+    end
+end)    
+end)
+
+ch:NewButton("ความเร็ว500", '?', function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    local hum = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    if hum then
+        hum.WalkSpeed = 500
+    end
+end)    
+end)
+
+
+
+he:NewButton("Antilag(TSB)", '?', function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/louismich4el/ItsLouisPlayz-Scripts/main/TSB%20Anti%20Lag.lua"))()    
+end)
+
+he:NewButton("fpsbooster", '?', function()
+
+-- MADE BY RIP#6666
+-- send issues or suggestions to my discord: discord.gg/rips
+
+if not _G.Ignore then
+    _G.Ignore = {} -- Add Instances to this table to ignore them (e.g. _G.Ignore = {workspace.Map, workspace.Map2})
+end
+if not _G.WaitPerAmount then
+    _G.WaitPerAmount = 500 -- Set Higher or Lower depending on your computer's performance
+end
+if _G.SendNotifications == nil then
+    _G.SendNotifications = true -- Set to false if you don't want notifications
+end
+if _G.ConsoleLogs == nil then
+    _G.ConsoleLogs = false -- Set to true if you want console logs (mainly for debugging)
+end
+
+
+
+if not game:IsLoaded() then
+    repeat
+        task.wait()
+    until game:IsLoaded()
+end
+if not _G.Settings then
+    _G.Settings = {
+        Players = {
+            ["Ignore Me"] = true,
+            ["Ignore Others"] = true,
+            ["Ignore Tools"] = true
+        },
+        Meshes = {
+            NoMesh = false,
+            NoTexture = false,
+            Destroy = false
+        },
+        Images = {
+            Invisible = true,
+            Destroy = false
+        },
+        Explosions = {
+            Smaller = true,
+            Invisible = false, -- Not recommended for PVP games
+            Destroy = false -- Not recommended for PVP games
+        },
+        Particles = {
+            Invisible = true,
+            Destroy = false
+        },
+        TextLabels = {
+            LowerQuality = false,
+            Invisible = false,
+            Destroy = false
+        },
+        MeshParts = {
+            LowerQuality = true,
+            Invisible = false,
+            NoTexture = false,
+            NoMesh = false,
+            Destroy = false
+        },
+        Other = {
+            ["FPS Cap"] = 240, -- Set this true to uncap FPS
+            ["No Camera Effects"] = true,
+            ["No Clothes"] = true,
+            ["Low Water Graphics"] = true,
+            ["No Shadows"] = true,
+            ["Low Rendering"] = true,
+            ["Low Quality Parts"] = true,
+            ["Low Quality Models"] = true,
+            ["Reset Materials"] = true,
+            ["Lower Quality MeshParts"] = true
+        }
+    }
+end
+local Players, Lighting, StarterGui, MaterialService = game:GetService("Players"), game:GetService("Lighting"), game:GetService("StarterGui"), game:GetService("MaterialService")
+local ME, CanBeEnabled = Players.LocalPlayer, {"ParticleEmitter", "Trail", "Smoke", "Fire", "Sparkles"}
+local function PartOfCharacter(Instance)
+    for i, v in pairs(Players:GetPlayers()) do
+        if v ~= ME and v.Character and Instance:IsDescendantOf(v.Character) then
+            return true
+        end
+    end
+    return false
+end
+local function DescendantOfIgnore(Instance)
+    for i, v in pairs(_G.Ignore) do
+        if Instance:IsDescendantOf(v) then
+            return true
+        end
+    end
+    return false
+end
+local function CheckIfBad(Instance)
+    if not Instance:IsDescendantOf(Players) and (_G.Settings.Players["Ignore Others"] and not PartOfCharacter(Instance) or not _G.Settings.Players["Ignore Others"]) and (_G.Settings.Players["Ignore Me"] and ME.Character and not Instance:IsDescendantOf(ME.Character) or not _G.Settings.Players["Ignore Me"]) and (_G.Settings.Players["Ignore Tools"] and not Instance:IsA("BackpackItem") and not Instance:FindFirstAncestorWhichIsA("BackpackItem") or not _G.Settings.Players["Ignore Tools"])--[[not PartOfCharacter(Instance)]] and (_G.Ignore and not table.find(_G.Ignore, Instance) and not DescendantOfIgnore(Instance) or (not _G.Ignore or type(_G.Ignore) ~= "table" or #_G.Ignore <= 0)) then
+        if Instance:IsA("DataModelMesh") then
+            if _G.Settings.Meshes.NoMesh and Instance:IsA("SpecialMesh") then
+                Instance.MeshId = ""
+            end
+            if _G.Settings.Meshes.NoTexture and Instance:IsA("SpecialMesh") then
+                Instance.TextureId = ""
+            end
+            if _G.Settings.Meshes.Destroy or _G.Settings["No Meshes"] then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("FaceInstance") then
+            if _G.Settings.Images.Invisible then
+                Instance.Transparency = 1
+                Instance.Shiny = 1
+            end
+            if _G.Settings.Images.LowDetail then
+                Instance.Shiny = 1
+            end
+            if _G.Settings.Images.Destroy then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("ShirtGraphic") then
+            if _G.Settings.Images.Invisible then
+                Instance.Graphic = ""
+            end
+            if _G.Settings.Images.Destroy then
+                Instance:Destroy()
+            end
+        elseif table.find(CanBeEnabled, Instance.ClassName) then
+            if _G.Settings["Invisible Particles"] or _G.Settings["No Particles"] or (_G.Settings.Other and _G.Settings.Other["Invisible Particles"]) or (_G.Settings.Particles and _G.Settings.Particles.Invisible) then
+                Instance.Enabled = false
+            end
+            if (_G.Settings.Other and _G.Settings.Other["No Particles"]) or (_G.Settings.Particles and _G.Settings.Particles.Destroy) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("PostEffect") and (_G.Settings["No Camera Effects"] or (_G.Settings.Other and _G.Settings.Other["No Camera Effects"])) then
+            Instance.Enabled = false
+        elseif Instance:IsA("Explosion") then
+            if _G.Settings["Smaller Explosions"] or (_G.Settings.Other and _G.Settings.Other["Smaller Explosions"]) or (_G.Settings.Explosions and _G.Settings.Explosions.Smaller) then
+                Instance.BlastPressure = 1
+                Instance.BlastRadius = 1
+            end
+            if _G.Settings["Invisible Explosions"] or (_G.Settings.Other and _G.Settings.Other["Invisible Explosions"]) or (_G.Settings.Explosions and _G.Settings.Explosions.Invisible) then
+                Instance.BlastPressure = 1
+                Instance.BlastRadius = 1
+                Instance.Visible = false
+            end
+            if _G.Settings["No Explosions"] or (_G.Settings.Other and _G.Settings.Other["No Explosions"]) or (_G.Settings.Explosions and _G.Settings.Explosions.Destroy) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("Clothing") or Instance:IsA("SurfaceAppearance") or Instance:IsA("BaseWrap") then
+            if _G.Settings["No Clothes"] or (_G.Settings.Other and _G.Settings.Other["No Clothes"]) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("BasePart") and not Instance:IsA("MeshPart") then
+            if _G.Settings["Low Quality Parts"] or (_G.Settings.Other and _G.Settings.Other["Low Quality Parts"]) then
+                Instance.Material = Enum.Material.Plastic
+                Instance.Reflectance = 0
+            end
+        elseif Instance:IsA("TextLabel") and Instance:IsDescendantOf(workspace) then
+            if _G.Settings["Lower Quality TextLabels"] or (_G.Settings.Other and _G.Settings.Other["Lower Quality TextLabels"]) or (_G.Settings.TextLabels and _G.Settings.TextLabels.LowerQuality) then
+                Instance.Font = Enum.Font.SourceSans
+                Instance.TextScaled = false
+                Instance.RichText = false
+                Instance.TextSize = 14
+            end
+            if _G.Settings["Invisible TextLabels"] or (_G.Settings.Other and _G.Settings.Other["Invisible TextLabels"]) or (_G.Settings.TextLabels and _G.Settings.TextLabels.Invisible) then
+                Instance.Visible = false
+            end
+            if _G.Settings["No TextLabels"] or (_G.Settings.Other and _G.Settings.Other["No TextLabels"]) or (_G.Settings.TextLabels and _G.Settings.TextLabels.Destroy) then
+                Instance:Destroy()
+            end
+        elseif Instance:IsA("Model") then
+            if _G.Settings["Low Quality Models"] or (_G.Settings.Other and _G.Settings.Other["Low Quality Models"]) then
+                Instance.LevelOfDetail = 1
+            end
+        elseif Instance:IsA("MeshPart") then
+            if _G.Settings["Low Quality MeshParts"] or (_G.Settings.Other and _G.Settings.Other["Low Quality MeshParts"]) or (_G.Settings.MeshParts and _G.Settings.MeshParts.LowerQuality) then
+                Instance.RenderFidelity = 2
+                Instance.Reflectance = 0
+                Instance.Material = Enum.Material.Plastic
+            end
+            if _G.Settings["Invisible MeshParts"] or (_G.Settings.Other and _G.Settings.Other["Invisible MeshParts"]) or (_G.Settings.MeshParts and _G.Settings.MeshParts.Invisible) then
+                Instance.Transparency = 1
+                Instance.RenderFidelity = 2
+                Instance.Reflectance = 0
+                Instance.Material = Enum.Material.Plastic
+            end
+            if _G.Settings.MeshParts and _G.Settings.MeshParts.NoTexture then
+                Instance.TextureID = ""
+            end
+            if _G.Settings.MeshParts and _G.Settings.MeshParts.NoMesh then
+                Instance.MeshId = ""
+            end
+            if _G.Settings["No MeshParts"] or (_G.Settings.Other and _G.Settings.Other["No MeshParts"]) or (_G.Settings.MeshParts and _G.Settings.MeshParts.Destroy) then
+                Instance:Destroy()
+            end
+        end
+    end
+end
+if _G.SendNotifications then
+    StarterGui:SetCore("SendNotification", {
+        Title = "discord.gg/rips",
+        Text = "Loading FPS Booster...",
+        Duration = math.huge,
+        Button1 = "Okay"
+    })
+end
+coroutine.wrap(pcall)(function()
+    if (_G.Settings["Low Water Graphics"] or (_G.Settings.Other and _G.Settings.Other["Low Water Graphics"])) then
+        if not workspace:FindFirstChildOfClass("Terrain") then
+            repeat
+                task.wait()
+            until workspace:FindFirstChildOfClass("Terrain")
+        end
+        workspace:FindFirstChildOfClass("Terrain").WaterWaveSize = 0
+        workspace:FindFirstChildOfClass("Terrain").WaterWaveSpeed = 0
+        workspace:FindFirstChildOfClass("Terrain").WaterReflectance = 0
+        workspace:FindFirstChildOfClass("Terrain").WaterTransparency = 0
+        if sethiddenproperty then
+            sethiddenproperty(workspace:FindFirstChildOfClass("Terrain"), "Decoration", false)
+        else
+            StarterGui:SetCore("SendNotification", {
+                Title = "discord.gg/rips",
+                Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+            warn("Your exploit does not support sethiddenproperty, please use a different exploit.")
+        end
+        if _G.SendNotifications then
+            StarterGui:SetCore("SendNotification", {
+                Title = "discord.gg/rips",
+                Text = "Low Water Graphics Enabled",
+                Duration = 5,
+                Button1 = "Okay"
+            })
+        end
+        if _G.ConsoleLogs then
+            warn("Low Water Graphics Enabled")
+        end
+    end
+end)
+coroutine.wrap(pcall)(function()
+    if _G.Settings["No Shadows"] or (_G.Settings.Other and _G.Settings.Other["No Shadows"]) then
+        Lighting.GlobalShadows = false
+        Lighting.FogEnd = 9e9
+        Lighting.ShadowSoftness = 0
+        if sethiddenproperty then
+            sethiddenproperty(Lighting, "Technology", 2)
+        else
+            StarterGui:SetCore("SendNotification", {
+                Title = "discord.gg/rips",
+                Text = "Your exploit does not support sethiddenproperty, please use a different exploit.",
+                Duration = 5,
