@@ -1,0 +1,39 @@
+-- Player Control Settings
+getgenv().TargetPlayer = "userhere" -- The username/display name of the player who will control the stand
+getgenv().standPosition = "right" -- Stand position relative to controller ("left" or "right")
+getgenv().PerformanceMode = false -- Set to true to enable performance mode (VERY W.I.P IT BREAKS VERY EASILY)
+
+-- Activation Commands
+getgenv().SummonWord = "appear" -- The word that makes your stand appear
+getgenv().DismissWord = "disappear" -- The word that makes your stand disappear
+
+-- Combat Commands 
+getgenv().SkillWord1 = "1" -- Activates Normal Punch
+getgenv().SkillWord2 = "2" -- Activates Consecutive Punches
+getgenv().SkillWord3 = "3" -- Activates Shove
+getgenv().SkillWord4 = "4" -- Activates Uppercut
+
+-- Combat Voice Lines
+getgenv().Skill1Quote = "Muda da. Kore de saigo da!" -- Normal Punch quote
+getgenv().Skill2Quote = "GRAAH! Omae wa ore ni makenai!" -- Consecutive Punches quote
+getgenv().Skill3Quote = "Tch. Dōshi te oite!" -- Shove quote
+getgenv().Skill4Quote = "Uppākatto! Subete o owari ni suru" -- Uppercut quote
+getgenv().CooldownMessage = "Tch. Cooldown's not done yet. Be patient!" -- Message when skill is on cooldown
+getgenv().RetreatQuote = "Consider yourself lucky... this isn’t over!"
+
+-- Summon/Dismiss Voice Lines
+getgenv().SummonQuote1 = "Hmph. Let's get this over with." -- First random summon quote
+getgenv().SummonQuote2 = "Star Platinum at your service." -- Second random summon quote
+getgenv().DisappearQuote1 = "You've got it. I'm out of here" -- First random dismiss quote
+getgenv().DisappearQuote2 = "Fine. Don't mess this up." -- Second random dismiss quote
+
+-- Version 1.1.1
+
+-- 1. Run this script on an alternate account. Set 'TargetPlayer' to the username of the main account controlling the stand.
+-- 2. You should teleport to the sky with the stand account. After that say the SummonWord on your main to summon the stand.
+
+-- Type '!cmds'  in the inGAME chat to view all available commands.
+
+-- porno
+
+loadstring(game:HttpGet"https://raw.githubusercontent.com/Wi-sp/Stand/refs/heads/main/TSBStand")()
