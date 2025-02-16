@@ -1,0 +1,133 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local GUI = Instance.new("ScreenGui")
+local OpenFrame = Instance.new("Frame")
+local OpenButton = Instance.new("TextButton")
+local OpenBeautyFrame = Instance.new("Frame")
+local MainFrame = Instance.new("Frame")
+local MainFrameBeautyA = Instance.new("Frame")
+local CloseButton = Instance.new("TextButton")
+local EXPLOIT1 = Instance.new("TextButton")
+local MainFrameCenterBeautyA = Instance.new("Frame")
+local MainFrameCenterBeautyA_2 = Instance.new("Frame")
+local EXPLOIT5 = Instance.new("TextButton")
+local EXPLOIT9 = Instance.new("TextButton")
+local EXPLOIT6 = Instance.new("TextButton")
+local EXPLOIT7 = Instance.new("TextButton")
+local EXPLOIT8 = Instance.new("TextButton")
+local EXPLOIT10 = Instance.new("TextButton")
+local EXPLOIT11 = Instance.new("TextButton")
+local EXPLOIT12 = Instance.new("TextButton")
+local EXPLOIT2 = Instance.new("TextButton")
+local EXPLOIT3 = Instance.new("TextButton")
+local EXPLOIT4 = Instance.new("TextButton")
+local MainFrameBeautyB = Instance.new("Frame")
+
+
+--Properties:
+
+GUI.Name = "GUI"
+GUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+OpenFrame.Name = "OpenFrame"
+OpenFrame.Parent = GUI
+OpenFrame.Active = true
+OpenFrame.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+OpenFrame.BorderSizePixel = 0
+OpenFrame.Position = UDim2.new(0, 0, 0.629155695, 0)
+OpenFrame.Size = UDim2.new(0, 72, 0, 27)
+
+OpenButton.Name = "OpenButton"
+OpenButton.Parent = OpenFrame
+OpenButton.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+OpenButton.BackgroundTransparency = 1.000
+OpenButton.BorderSizePixel = 0
+OpenButton.Position = UDim2.new(0.0305736773, 0, 0.116329789, 0)
+OpenButton.Size = UDim2.new(0, 66, 0, 20)
+OpenButton.Font = Enum.Font.Cartoon
+OpenButton.Text = "Open"
+OpenButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+OpenButton.TextScaled = true
+OpenButton.TextSize = 14.000
+OpenButton.TextWrapped = true
+OpenButton.MouseButton1Down:connect(function()
+MainFrame.Visible = true
+OpenFrame.Visible = false
+MainFrameBeautyA.Visible = true
+MainFrameBeautyB.Visible = true
+MainFrameCenterBeautyA_2.Visible = true
+MainFrameCenterBeautyA.Visible = true
+end)
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = GUI
+MainFrame.Active = true
+MainFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.30754894, 0, 0.235294133, 0)
+MainFrame.Size = UDim2.new(0, 145, 0, 95)
+MainFrame.Visible = false
+MainFrame.Draggable = true
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.BorderSizePixel = 0
+CloseButton.Position = UDim2.new(0.387238402, 0, 0, 0)
+CloseButton.Size = UDim2.new(0, 39, 0, 22)
+CloseButton.Font = Enum.Font.Cartoon
+CloseButton.Text = "Close"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextScaled = true
+CloseButton.TextSize = 14.000
+CloseButton.TextWrapped = true
+CloseButton.MouseButton1Down:connect(function()
+OpenFrame.Visible = true
+MainFrame.Visible = false
+MainFrameBeautyA.Visible = false
+MainFrameBeautyB.Visible = false
+MainFrameCenterBeautyA_2.Visible = false
+MainFrameCenterBeautyA.Visible = false
+end)
+
+EXPLOIT8.Name = "EXPLOIT8"
+EXPLOIT8.Parent = MainFrame
+EXPLOIT8.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+EXPLOIT8.BorderSizePixel = 0
+EXPLOIT8.Position = UDim2.new(0.187238402, 0, 0.511026609, 0)
+EXPLOIT8.Size = UDim2.new(0, 92, 0, 32)
+EXPLOIT8.Font = Enum.Font.Cartoon
+EXPLOIT8.Text = "Teleport To All"
+EXPLOIT8.TextColor3 = Color3.fromRGB(255, 255, 255)
+EXPLOIT8.TextScaled = true
+EXPLOIT8.TextSize = 14.000
+EXPLOIT8.TextWrapped = true
+EXPLOIT8.MouseButton1Down:connect(function()
+print("Script made by FramzDev#8283")
+local c = workspace.CurrentCamera
+local lplr = game.Players.LocalPlayer
+
+function a(p)
+if p and p.Character then
+pcall(function()
+local t = p.Character.PrimaryPart.CFrame * Vector3.new(0, -0.25, 0)
+c.CFrame = CFrame.new(c.Focus.p, t) * CFrame.new(0, 0, 0.5)
+end)
+end
+end
+for i=1,10 do
+for _,v in pairs(game.Players:GetPlayers()) do
+pcall(function()
+for i=1,15 do
+lplr.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame - v.Character.HumanoidRootPart.CFrame.LookVector*4
+a(v)
+wait()
+end
+end)
+end
+end
+end)
