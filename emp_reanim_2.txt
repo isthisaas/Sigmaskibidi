@@ -681,7 +681,7 @@ Empyrean = Start({
 		
 		-- Left Legs
 		
-		{ MeshId = "11159370334", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "11159284657" },--18641187217
+		{ MeshId = "125405780718494", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "136752500636691" },--18641187217
 		{ MeshId = "17387586286", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "17387586304" },--17387616772
 		{ MeshId = "139733645770094", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "130809869695496" },--82942681251131
 		
@@ -697,7 +697,7 @@ Empyrean = Start({
 		
 		-- Right Legs
 		
-		{ MeshId = "11263221350", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "11263219250" },--18641157833
+		{ MeshId = "125405780718494", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "136752500636691" },--18641157833
 		{ MeshId = "17387586286", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "17387586304" },--17401151565
 		{ MeshId = "99608462237958", Names = { "Left Arm", "Left Leg", "Right Arm", "Right Leg" }, Offset = CFrame.Angles(0, 0, 1.57), TextureId = "130809869695496" },--140395948277978
 		
