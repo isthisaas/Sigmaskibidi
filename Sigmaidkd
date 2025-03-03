@@ -25,13 +25,13 @@ _G.CH = {
     },
 
     LeftLeg = {
-        Name= "Accessory (LLeg)",
+        Name= "Unloaded head",
         TextureId = "11159284657", 
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
     },
 
     RightLeg = {
-        Name= "Accessory (rightleg)",
+        Name= "MeshPartAccessory",
         TextureId = "11263219250", 
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
     }
