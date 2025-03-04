@@ -13,13 +13,13 @@ _G.CH = {
 
     LeftArm = {
         Name= "Accessory (LARM)",
-        TextureId = "17374768001", 
+        TextureId = "14768683674", 
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
     },
 
     RightArm = {
         Name= "Accessory (RARM)",
-        TextureId = "17374768001", 
+        TextureId = "14768683674", 
         Orientation= CFrame.Angles(math.rad(0),math.rad(0),math.rad(90))
     },
 
