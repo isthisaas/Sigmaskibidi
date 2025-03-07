@@ -752,7 +752,7 @@ Empyrean = Start({
 		
 		{ MeshId = "13058343355", Name = "Head", Offset = CFrame.Angles(0, 3.141, 0), TextureId = "13058343394" },--13058406993	
 	},
-	ApplyDescription = false,
+	ApplyDescription = true,
 	BreakJointsDelay = 0.251,
 	ChangePrimaryPart = false,
 	ClickFling = false,
