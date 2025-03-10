@@ -756,7 +756,7 @@ Empyrean = Start({
 	BreakJointsDelay = 0.251,
 	ChangePrimaryPart = false,
 	ClickFling = false,
-	DisableCharacterCollisions = false,
+	DisableCharacterCollisions = true,
 	DisableHealthBar = true,
 	ParentCharacter = true,
 	PermanentDeath = true,
@@ -766,7 +766,7 @@ Empyrean = Start({
 	SetCameraSubject = true,
 	SetCameraType = false,
 	SetCharacter = true,
-	SetCollisionGroup = false,
+	SetCollisionGroup = true,
 	SimulationRadius = 2147483647,
 	TeleportRadius = 24
 })
