@@ -6,7 +6,6 @@ if not LPH_OBFUSCATED then
     LPH_JIT_MAX        = function(...) return ... end
     LPH_NO_UPVALUES    = function(...) return ... end 
     LPH_NO_VIRTUALIZE  = function(...) return ... end 
-    LPH_CRASH          = function(...) return ... end 
     LPH_ENCSTR         = function(...) return ... end 
 end
 
@@ -25,7 +24,7 @@ local Data = Data
 if not Data then
     Data = {
         InviteToDiscord = false,
-        Intro = false,
+        Intro = true,
         KillSayStuff = {
             Normal = {
                 "bro, respawn faster, I need more %XP% XP 💀",
