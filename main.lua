@@ -4,9 +4,7 @@
 
 if not LPH_OBFUSCATED then    
     LPH_JIT_MAX        = function(...) return ... end
-    LPH_NO_UPVALUES    = function(...) return ... end 
-    LPH_NO_VIRTUALIZE  = function(...) return ... end 
-    LPH_ENCSTR         = function(...) return ... end 
+    LPH_NO_VIRTUALIZE  = function(...) return ... end
 end
 
 local request = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or request
